@@ -1,0 +1,1117 @@
+DATA_PATH=/jizhicfs/fenghengyi/data/innovator_instruct_energon
+TOKENIZER_PATH=/jizhicfs/fenghengyi/models/Innovator-VL-8B
+CHECKPOINT_PATH=/jizhicfs/fenghengyi/innovator_saves/stage_1.5_mid_training_innovator_vl_8b
+RESUME_FROM_CHECKPOINT=/mnt/innovator/code/wenzichen/Innovator-VL/checkpoints/0101_SFT_Stage1_44M_Mixed_Sci_Data_V1
+SAVE_CKPT_PATH=/jizhicfs/fenghengyi/innovator_saves/stage_2_instruct_innovator_vl_8b
+TENSORBOARD_PATH=/jizhicfs/fenghengyi/innovator_saves/stage_2_instruct_innovator_vl_8b/tensorboard
+=== Distributed env auto-detection start ===
+Detected CURRENT_IP: 29.208.37.239
+Final distributed config:
+  MASTER_ADDR=127.0.0.1
+  MASTER_PORT=26000
+  WORLD_SIZE=1
+  RANK=0
+  CURRENT_IP=29.208.37.239
+Resolved MASTER_IPV4: 127.0.0.1
+NO_PROXY set to: 127.0.0.1,localhost,::1,127.0.0.1
+Warning: Checkpoint path specified in RESUME_FROM_CHECKPOINT is not valid.
+It must be a directory containing a 'latest_checkpointed_iteration.txt' file.
+Provided path: /mnt/innovator/code/wenzichen/Innovator-VL/checkpoints/0101_SFT_Stage1_44M_Mixed_Sci_Data_V1
+Falling back to initial model: /jizhicfs/fenghengyi/innovator_saves/stage_1.5_mid_training_innovator_vl_8b
+Starting training from initial model: /jizhicfs/fenghengyi/innovator_saves/stage_1.5_mid_training_innovator_vl_8b
+Launching Stage 2 Instruction Tuning with torchrun:
+torchrun --nproc_per_node
+8 /jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py ...
+W0423 15:06:07.066000 3231472 site-packages/torch/distributed/run.py:793] 
+W0423 15:06:07.066000 3231472 site-packages/torch/distributed/run.py:793] *****************************************
+W0423 15:06:07.066000 3231472 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0423 15:06:07.066000 3231472 site-packages/torch/distributed/run.py:793] *****************************************
+INFO:datasets:PyTorch version 2.5.1+cu124 available.
+INFO:datasets:PyTorch version 2.5.1+cu124 available.
+INFO:datasets:PyTorch version 2.5.1+cu124 available.
+INFO:datasets:PyTorch version 2.5.1+cu124 available.
+INFO:datasets:PyTorch version 2.5.1+cu124 available.
+INFO:datasets:PyTorch version 2.5.1+cu124 available.
+INFO:datasets:PyTorch version 2.5.1+cu124 available.
+INFO:datasets:PyTorch version 2.5.1+cu124 available.
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 470, in cached_files
+WARNING: TensorBoard writing requested but is not available (are you using PyTorch 1.1.0 or later?), no TensorBoard logs will be written.
+    hf_hub_download(
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 470, in cached_files
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    hf_hub_download(
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1653, in _raise_on_head_call_error
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 21, in <module>
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1653, in _raise_on_head_call_error
+    main()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 17, in main
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 21, in <module>
+    trainer.train()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/megatron_trainer.py", line 48, in train
+    main()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 17, in main
+    pretrain(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/training_utils.py", line 170, in pretrain
+    trainer.train()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/megatron_trainer.py", line 48, in train
+    initialize_aiak_megatron(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/initialize.py", line 107, in initialize_aiak_megatron
+    pretrain(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/training_utils.py", line 170, in pretrain
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 470, in cached_files
+    set_aiak_extra_global_vars(args, build_tokenizer=True)
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 30, in set_aiak_extra_global_vars
+    initialize_aiak_megatron(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/initialize.py", line 107, in initialize_aiak_megatron
+    hf_hub_download(
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    _ = _build_tokenizer(args)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 58, in _build_tokenizer
+    set_aiak_extra_global_vars(args, build_tokenizer=True)
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 30, in set_aiak_extra_global_vars
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    _ = _build_tokenizer(args)
+    _GLOBAL_AIAK_TOKENIZER = build_tokenizer(args, chat_template=_GLOBAL_CHAT_TEMPLATE)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 58, in _build_tokenizer
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenizer.py", line 63, in build_tokenizer
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+    tokenizer = AutoTokenizerFromHF(name_or_path=args.hf_tokenizer_path,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenization_hf.py", line 27, in __init__
+    _GLOBAL_AIAK_TOKENIZER = build_tokenizer(args, chat_template=_GLOBAL_CHAT_TEMPLATE)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenizer.py", line 63, in build_tokenizer
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1653, in _raise_on_head_call_error
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 1002, in from_pretrained
+    tokenizer = AutoTokenizerFromHF(name_or_path=args.hf_tokenizer_path,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenization_hf.py", line 27, in __init__
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 21, in <module>
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 1002, in from_pretrained
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1197, in from_pretrained
+    main()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 17, in main
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 608, in get_config_dict
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1197, in from_pretrained
+    trainer.train()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/megatron_trainer.py", line 48, in train
+    pretrain(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/training_utils.py", line 170, in pretrain
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 608, in get_config_dict
+    initialize_aiak_megatron(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/initialize.py", line 107, in initialize_aiak_megatron
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 667, in _get_config_dict
+    set_aiak_extra_global_vars(args, build_tokenizer=True)
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 30, in set_aiak_extra_global_vars
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 470, in cached_files
+        resolved_config_file = cached_file(config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+
+                           ^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 312, in cached_file
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 667, in _get_config_dict
+    _ = _build_tokenizer(args)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 58, in _build_tokenizer
+    hf_hub_download(
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 312, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    _GLOBAL_AIAK_TOKENIZER = build_tokenizer(args, chat_template=_GLOBAL_CHAT_TEMPLATE)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenizer.py", line 63, in build_tokenizer
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    ^raise OSError(^
+^^^^^^^^^^^^^^^^^^^^OSError^^: ^We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.^
+^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    tokenizer = AutoTokenizerFromHF(name_or_path=args.hf_tokenizer_path,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenization_hf.py", line 27, in __init__
+    raise OSError(
+OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 1002, in from_pretrained
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1653, in _raise_on_head_call_error
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1197, in from_pretrained
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 470, in cached_files
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 21, in <module>
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 608, in get_config_dict
+    hf_hub_download(
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 667, in _get_config_dict
+    main()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 17, in main
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 312, in cached_file
+    trainer.train()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/megatron_trainer.py", line 48, in train
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 470, in cached_files
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    pretrain(
+      File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/training_utils.py", line 170, in pretrain
+hf_hub_download(
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1653, in _raise_on_head_call_error
+    raise OSError(
+OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    initialize_aiak_megatron(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/initialize.py", line 107, in initialize_aiak_megatron
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 21, in <module>
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+    set_aiak_extra_global_vars(args, build_tokenizer=True)
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 30, in set_aiak_extra_global_vars
+    main()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 17, in main
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    _ = _build_tokenizer(args)
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1653, in _raise_on_head_call_error
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 58, in _build_tokenizer
+    trainer.train()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/megatron_trainer.py", line 48, in train
+    _GLOBAL_AIAK_TOKENIZER = build_tokenizer(args, chat_template=_GLOBAL_CHAT_TEMPLATE)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenizer.py", line 63, in build_tokenizer
+    pretrain(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/training_utils.py", line 170, in pretrain
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 21, in <module>
+    tokenizer = AutoTokenizerFromHF(name_or_path=args.hf_tokenizer_path,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenization_hf.py", line 27, in __init__
+    initialize_aiak_megatron(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/initialize.py", line 107, in initialize_aiak_megatron
+    main()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 17, in main
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 1002, in from_pretrained
+-------------- Configure model to innovator-vl-8b --------------
+  num_layers = 36 
+  hidden_size = 4096 
+  ffn_hidden_size = 12288 
+  num_attention_heads = 32 
+  group_query_attention = True 
+  num_query_groups = 8 
+  position_embedding_type = rope 
+  add_position_embedding = False 
+  rotary_interleaved = False 
+  normalization = RMSNorm 
+  swiglu = True 
+  attention_dropout = 0 
+  hidden_dropout = 0     
+set_aiak_extra_global_vars(args, build_tokenizer=True)  add_bias_linear = False 
+
+  add_qkv_bias = False 
+  qk_layernorm = True 
+  untie_embeddings_and_output_weights = True 
+  vocab_size_in_config_file = 151936 
+  make_vocab_size_divisible_by = 128 
+  norm_epsilon = 1e-06 
+  rotary_base = 1000000 
+  kv_channels = 128 
+  num_experts = None 
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 30, in set_aiak_extra_global_vars
+  moe_ffn_hidden_size = None 
+---------------- End of configuration ----------------
+INFO: Set dataloader type to external since --training-phase=SFT
+WARNING: --sft-dataset-config is not specified, setup to default config (/jizhicfs/fenghengyi/Innovator-VL/configs/sft_dataset_config.json)
+using world size: 8, data-parallel size: 1, context-parallel size: 1, hierarchical context-parallel sizes: Nonetensor-model-parallel size: 8, encoder-tensor-model-parallel size: 0, pipeline-model-parallel size: 1, encoder-pipeline-model-parallel size: 0
+Number of virtual stages per pipeline stage: None
+accumulate and all-reduce gradients in fp32 for bfloat16 data type.
+using torch.bfloat16 for parameters ...
+------------------------ arguments ------------------------
+    trainer.train()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/megatron_trainer.py", line 48, in train
+  account_for_embedding_in_pipeline_split ......... False
+  account_for_loss_in_pipeline_split .............. False
+  accumulate_allreduce_grads_in_fp32 .............. True
+  adam_beta1 ...................................... 0.9
+  adam_beta2 ...................................... 0.99
+  adam_eps ........................................ 1e-05
+  add_bias_linear ................................. False
+  add_position_embedding .......................... False
+  add_qkv_bias .................................... False
+  add_question_in_pretrain ........................ False
+  additional_special_tokens ....................... None
+  adlr_autoresume ................................. False
+  adlr_autoresume_interval ........................ 1000
+  align_grad_reduce ............................... True
+  align_param_gather .............................. False
+  app_tag_run_name ................................ None
+  app_tag_run_version ............................. 0.0.0
+  apply_layernorm_1p .............................. False
+  apply_query_key_layer_scaling ................... False
+  apply_residual_connection_post_layernorm ........ False
+  apply_rope_fusion ............................... False
+  async_save ...................................... None
+  async_tensor_model_parallel_allreduce ........... True
+  attention_backend ............................... AttnBackend.flash
+  attention_dropout ............................... 0
+  attention_softmax_in_fp32 ....................... False
+  auto_detect_ckpt_format ......................... False
+  barrier_with_L1_time ............................ True
+  bert_binary_head ................................ True
+  bert_embedder_type .............................. megatron
+  bert_load ....................................... None
+  bf16 ............................................ True
+  bias_dropout_fusion ............................. True
+  bias_gelu_fusion ................................ False
+  bias_swiglu_fusion .............................. True
+  biencoder_projection_dim ........................ 0
+  biencoder_shared_query_context_model ............ False
+  block_data_path ................................. None
+  calc_ft_timeouts ................................ False
+  calculate_per_token_loss ........................ False
+  caption_channels ................................ None
+  chat_template ................................... qwen2-vl
+  check_for_large_grads ........................... False
+  check_for_nan_in_loss_and_grad .................. True
+  check_for_spiky_loss ............................ False
+  check_weight_hash_across_dp_replicas_interval ... None
+  ckpt_assume_constant_structure .................. False
+  ckpt_convert_format ............................. None
+  ckpt_convert_save ............................... None
+  ckpt_convert_update_legacy_dist_opt_format ...... False
+  ckpt_format ..................................... torch
+  ckpt_fully_parallel_load ........................ True
+  ckpt_fully_parallel_save ........................ True
+  ckpt_fully_parallel_save_deprecated ............. False
+  ckpt_step ....................................... None
+  classes_fraction ................................ 1.0
+  clip_grad ....................................... 1.0
+  clone_scatter_output_in_embedding ............... True
+  combined_1f1b ................................... False
+  combined_1f1b_recipe ............................ ep_a2a
+  config_logger_dir ............................... 
+  consumed_train_samples .......................... 0
+  consumed_valid_samples .......................... 0
+  context_parallel_size ........................... 1
+  context_parallel_ulysses_degree ................. 1
+  cp_comm_type .................................... ['p2p']
+  create_attention_mask_in_dataloader ............. True
+  cross_entropy_loss_fusion ....................... False
+  cuda_graph_warmup_steps ......................... 3
+  custom_pipeline_layers .......................... None
+  custom_pipeline_recompute_layers ................ None
+  d2d_max_data_volume ............................. 0
+  d2d_optimizer ................................... disabled
+  data_args_path .................................. None
+  data_cache_path ................................. None
+  data_parallel_random_init ....................... False
+  data_parallel_sharding_strategy ................. no_shard
+  data_parallel_size .............................. 1
+  data_path ....................................... ['/jizhicfs/fenghengyi/data/innovator_instruct_energon']
+  data_per_class_fraction ......................... 1.0
+  data_sharding ................................... True
+  dataloader_save ................................. /jizhicfs/fenghengyi/innovator_saves/stage_2_instruct_innovator_vl_8b/dataloader
+  dataloader_type ................................. external
+  ddp_average_in_collective ....................... False
+  ddp_bucket_size ................................. None
+  ddp_num_buckets ................................. None
+  ddp_pad_buckets_for_high_nccl_busbw ............. False
+  decoder_first_pipeline_num_layers ............... None
+  decoder_last_pipeline_num_layers ................ None
+  decoder_num_layers .............................. None
+  decoder_seq_length .............................. None
+  decoupled_lr .................................... None
+  decoupled_min_lr ................................ None
+  decrease_batch_size_if_needed ................... False
+  defer_embedding_wgrad_compute ................... False
+  dense_mlp_activation_func_recompute ............. False
+  deprecated_use_mcore_models ..................... False
+  detail_log_interval ............................. 20
+  deterministic_mode .............................. False
+  dino_bottleneck_size ............................ 256
+  dino_freeze_last_layer .......................... 1
+  dino_head_hidden_size ........................... 2048
+  dino_local_crops_number ......................... 10
+  dino_local_img_size ............................. 96
+  dino_norm_last_layer ............................ False
+  dino_teacher_temp ............................... 0.07
+  dino_warmup_teacher_temp ........................ 0.04
+  dino_warmup_teacher_temp_epochs ................. 30
+  disable_straggler_on_startup .................... False
+  dist_ckpt_format_deprecated ..................... None
+  dist_ckpt_strictness ............................ assume_ok_unexpected
+  distribute_saved_activations .................... False
+  distributed_backend ............................. nccl
+  distributed_timeout_minutes ..................... 10
+  ema_decay ....................................... 0.9999
+  embedding_path .................................. None
+  empty_unused_memory_level ....................... 0
+  enable_cuda_graph ............................... False
+  enable_discard_sample ........................... True
+  enable_ema ...................................... False
+  enable_fa_within_mla ............................ False
+  enable_fp8_comm ................................. False
+  enable_ft_package ............................... False
+  enable_gloo_process_groups ...................... True
+  enable_mem_monitor .............................. False
+  enable_one_logger ............................... False
+  enable_turn_off_bucketing ....................... True
+  encoder_num_layers .............................. 36
+  encoder_pipeline_model_parallel_size ............ 0
+  encoder_seq_length .............................. 32768
+  encoder_tensor_model_parallel_size .............. 0
+  end_weight_decay ................................ 0.0
+  eod_mask_loss ................................... False
+  error_injection_rate ............................ 0
+  error_injection_type ............................ transient_error
+  eval_interval ................................... 1000
+  eval_iters ...................................... 100
+  evidence_data_path .............................. None
+  exit_duration_in_mins ........................... None
+  exit_interval ................................... None
+  exit_on_missing_checkpoint ...................... False
+  exit_signal_handler ............................. False
+  exp_avg_dtype ................................... torch.float32
+  exp_avg_sq_dtype ................................ torch.float32
+  expert_model_parallel_size ...................... 1
+  expert_tensor_parallel_size ..................... 8
+  ffn_hidden_size ................................. 12288
+  finetune ........................................ True
+  first_last_layers_bf16 .......................... False
+  flash_decode .................................... False
+  fp16 ............................................ False
+  fp16_lm_cross_entropy ........................... False
+  fp32_residual_connection ........................ False
+  fp8 ............................................. None
+  fp8_amax_compute_algo ........................... most_recent
+  fp8_amax_history_len ............................ 1
+  fp8_interval .................................... 1
+  fp8_margin ...................................... 0
+  fp8_param_gather ................................ False
+  fp8_recipe ...................................... delayed
+  fp8_wgrad ....................................... True
+  fps ............................................. 2.0
+  fps_max_frames .................................. 768
+  fps_min_frames .................................. 4
+  frame_max_pixels ................................ 602112
+  frame_min_pixels ................................ 100352
+  global_batch_size ............................... 288
+  grad_reduce_in_bf16 ............................. False
+  gradient_accumulation_fusion .................... False
+  gradient_reduce_div_fusion ...................... True
+  group_query_attention ........................... True
+  head_lr_mult .................................... 1.0
+  hf_tokenizer_path ............................... /jizhicfs/fenghengyi/models/Innovator-VL-8B
+  hidden_dropout .................................. 0
+  hidden_size ..................................... 4096
+  hierarchical_context_parallel_sizes ............. None
+  hybrid_attention_ratio .......................... 0.0
+  hybrid_mlp_ratio ................................ 0.0
+  hybrid_override_pattern ......................... None
+  hysteresis ...................................... 2
+  ict_head_size ................................... None
+  ict_load ........................................ None
+  image_resolution ................................ 1000
+  img_h ........................................... 224
+  img_w ........................................... 224
+  indexer_batch_size .............................. 128
+  indexer_log_interval ............................ 1000
+  inference_batch_times_seqlen_threshold .......... -1
+  inference_max_batch_size ........................ 8
+  inference_max_seq_length ........................ 2560
+  inference_rng_tracker ........................... False
+  init_method_std ................................. 0.02
+  init_method_xavier_uniform ...................... False
+  init_model_with_meta_device ..................... False
+  initial_loss_scale .............................. 65536.0
+  is_tokenized_data ............................... False
+  iter_per_epoch .................................. 1250
+  iterations_to_skip .............................. []
+  keep_fp8_transpose_cache_when_using_custom_fsdp . False
+  kv_channels ..................................... 128
+  kv_lora_rank .................................... 32
+  language_model_type ............................. None
+  latent_frame_interval ........................... 1
+  latent_in_channels .............................. None
+  latent_out_channels ............................. None
+  latent_patch_size ............................... (1, 1, 1)
+  latent_space_scale .............................. 1.0
+  latent_time_scale ............................... 1.0
+  layernorm_recompute ............................. False
+  lazy_mpu_init ................................... None
+  length_sort_desc ................................ False
+  length_sort_pool_size ........................... 0
+  load ............................................ /jizhicfs/fenghengyi/innovator_saves/stage_1.5_mid_training_innovator_vl_8b
+  load_ema ........................................ None
+  local_rank ...................................... 0
+  log_detail ...................................... True
+  log_interval .................................... 1
+  log_loss_scale_to_tensorboard ................... True
+  log_memory_to_tensorboard ....................... False
+  log_num_zeros_in_grad ........................... False
+  log_params_norm ................................. False
+  log_progress .................................... False
+  log_straggler ................................... False
+  log_throughput .................................. False
+  log_timers_to_tensorboard ....................... True
+  log_validation_ppl_to_tensorboard ............... False
+  log_world_size_to_tensorboard ................... False
+  logging_level ................................... None
+  loss_scale ...................................... None
+  loss_scale_window ............................... 1000
+  lr .............................................. 1e-05
+  lr_decay_iters .................................. 171875
+  lr_decay_samples ................................ None
+  lr_decay_style .................................. cosine
+  lr_warmup_fraction .............................. 0.002
+  lr_warmup_init .................................. 0.0
+  lr_warmup_iters ................................. 0
+  lr_warmup_samples ............................... 0
+  lr_wsd_decay_iters .............................. None
+  lr_wsd_decay_samples ............................ None
+  lr_wsd_decay_style .............................. exponential
+  main_grads_dtype ................................ torch.float32
+  main_params_dtype ............................... torch.float32
+  make_vocab_size_divisible_by .................... 128
+  manual_gc ....................................... False
+  manual_gc_eval .................................. True
+  manual_gc_interval .............................. 0
+  mask_factor ..................................... 1.0
+  mask_prob ....................................... 0.15
+  mask_type ....................................... random
+  masked_softmax_fusion ........................... True
+  max_latent_height ............................... None
+  max_latent_width ................................ None
+  max_pixels ...................................... 12845056
+  max_position_embeddings ......................... 32768
+  max_text_length ................................. None
+  max_tokens_to_oom ............................... 12000
+  mem_monitor_force_print_token_threshold ......... 10000000
+  mem_monitor_log ................................. None
+  memory_snapshot_path ............................ snapshot.pickle
+  merge_file ...................................... None
+  micro_batch_size ................................ 1
+  microbatch_group_size_per_vp_stage .............. None
+  min_loss_scale .................................. 1.0
+  min_lr .......................................... 1e-06
+  min_pixels ...................................... 3136
+  mla_recompute ................................... False
+  mmap_bin_files .................................. True
+  mock_data ....................................... False
+  model_family .................................... innovator_vl
+  model_name ...................................... innovator-vl-8b
+  moe_aux_loss_coeff .............................. 0.0
+  moe_enable_deepep ............................... False
+  moe_expert_capacity_factor ...................... None
+  moe_extended_tp ................................. False
+  moe_ffn_hidden_size ............................. None
+  moe_grouped_gemm ................................ False
+  moe_input_jitter_eps ............................ None
+  moe_layer_freq .................................. 1
+  moe_layer_recompute ............................. False
+  moe_mlp_activation_func_recompute ............... False
+  moe_pad_expert_input_to_capacity ................ False
+  moe_per_layer_logging ........................... False
+  moe_permute_fusion .............................. False
+  moe_router_bias_update_rate ..................... 0.001
+  moe_router_dtype ................................ None
+  moe_router_enable_expert_bias ................... False
+  moe_router_force_load_balancing ................. False
+  moe_router_group_topk ........................... None
+  moe_router_load_balancing_type .................. aux_loss
+  moe_router_num_groups ........................... None
+  moe_router_padding_for_fp8 ...................... False
+  moe_router_pre_softmax .......................... False
+  moe_router_score_function ....................... softmax
+  moe_router_topk ................................. 2
+  moe_router_topk_scaling_factor .................. None
+  moe_shared_expert_intermediate_size ............. None
+  moe_shared_expert_overlap ....................... False
+  moe_token_dispatcher_type ....................... allgather
+  moe_token_drop_policy ........................... probs
+  moe_use_legacy_grouped_gemm ..................... False
+  moe_use_upcycling ............................... False
+  moe_z_loss_coeff ................................ None
+  mscale .......................................... 1.0
+  mscale_all_dim .................................. 1.0
+  mtp_loss_coef ................................... 0.1
+  multi_latent_attention .......................... False
+  nccl_communicator_config_path ................... None
+  no_load_optim ................................... True
+  no_load_rng ..................................... True
+  no_persist_layer_norm ........................... False
+  no_save_optim ................................... None
+  no_save_rng ..................................... None
+  non_persistent_ckpt_type ........................ None
+  non_persistent_global_ckpt_dir .................. None
+  non_persistent_local_ckpt_algo .................. fully_parallel
+  non_persistent_local_ckpt_dir ................... None
+  non_persistent_save_interval .................... None
+  norm_epsilon .................................... 1e-06
+  normalization ................................... RMSNorm
+  num_attention_heads ............................. 32
+  num_bucket_build_workers ........................ 1
+  num_channels .................................... 3
+  num_classes ..................................... 1000
+  num_dataset_builder_threads ..................... 1
+  num_distributed_optimizer_instances ............. 1
+  num_experts ..................................... None
+  num_latent_frames ............................... None
+  num_layers ...................................... 36
+  num_layers_at_end_in_bf16 ....................... 1
+  num_layers_at_start_in_bf16 ..................... 1
+  num_layers_per_virtual_pipeline_stage ........... None
+  num_nextn_predict_layers ........................ 0
+  num_query_groups ................................ 8
+  num_virtual_stages_per_pipeline_rank ............ None
+  num_workers ..................................... 16
+  one_logger_async ................................ False
+  one_logger_project .............................. megatron-lm
+  one_logger_run_name ............................. None
+  onnx_safe ....................................... None
+  openai_gelu ..................................... False
+  optimizer ....................................... adam
+  optimizer_cpu_offload ........................... False
+  optimizer_offload_fraction ...................... 1.0
+  output_bert_embeddings .......................... False
+  overlap_cpu_optimizer_d2h_h2d ................... False
+  overlap_d2d_optimizer ........................... True
+  overlap_grad_reduce ............................. False
+  overlap_p2p_comm ................................ False
+  overlap_p2p_comm_warmup_flush ................... False
+  overlap_param_gather ............................ False
+  overlap_param_gather_with_optimizer_step ........ False
+  override_opt_param_scheduler .................... True
+  packing_batch_size .............................. None
+  packing_pretrain_data ........................... False
+  packing_sft_data ................................ False
+  padded_vocab_size ............................... None
+  padding_side .................................... right
+  params_dtype .................................... torch.bfloat16
+  patch_dim ....................................... 16
+  per_split_data_args_path ........................ None
+  perform_initialization .......................... True
+  pin_cpu_grads ................................... True
+  pin_cpu_params .................................. True
+  pipeline_model_parallel_comm_backend ............ None
+  pipeline_model_parallel_size .................... 1
+  pipeline_model_parallel_split_rank .............. None
+  position_embedding_type ......................... rope
+  pretrained_checkpoint ........................... None
+  print_mem_monitor_interval ...................... 100000
+  profile ......................................... False
+  profile_ranks ................................... [0]
+  profile_step_end ................................ 12
+  profile_step_start .............................. 10
+  q_lora_rank ..................................... None
+  qk_head_dim ..................................... 128
+  qk_layernorm .................................... True
+  qk_pos_emb_head_dim ............................. 64
+  query_in_block_prob ............................. 0.1
+  rampup_batch_size ............................... None
+  rank ............................................ 0
+  recompute_granularity ........................... full
+  recompute_method ................................ uniform
+  recompute_num_layers ............................ 1
+  record_memory_history ........................... False
+  reduced_data_volume_from_pre_stage .............. 0
+  relative_attention_max_distance ................. 128
+  relative_attention_num_buckets .................. 32
+  replication ..................................... False
+  replication_factor .............................. 2
+  replication_jump ................................ None
+  rerun_mode ...................................... disabled
+  reset_attention_mask ............................ False
+  reset_position_ids .............................. False
+  result_rejected_tracker_filename ................ None
+  retriever_report_topk_accuracies ................ []
+  retriever_score_scaling ......................... False
+  retriever_seq_length ............................ 256
+  retro_add_retriever ............................. False
+  retro_attention_gate ............................ 1
+  retro_cyclic_train_iters ........................ None
+  retro_encoder_attention_dropout ................. 0.1
+  retro_encoder_hidden_dropout .................... 0.1
+  retro_encoder_layers ............................ 2
+  retro_num_neighbors ............................. 2
+  retro_num_retrieved_chunks ...................... 2
+  retro_project_dir ............................... None
+  retro_verify_neighbor_count ..................... True
+  rope_in_fp32 .................................... True
+  rope_scaling_factor ............................. 8.0
+  rotary_base ..................................... 1000000
+  rotary_interleaved .............................. False
+  rotary_percent .................................. 1.0
+  rotary_scaling_factor ........................... 1.0
+  rotary_seq_len_interpolation_factor ............. None
+  sample_rate ..................................... 1.0
+  save ............................................ /jizhicfs/fenghengyi/innovator_saves/stage_2_instruct_innovator_vl_8b
+  save_ema ........................................ None
+  save_interval ................................... 5000
+  scatter_gather_tensors_in_pipeline .............. True
+  seed ............................................ 1234
+  separate_layernorm_and_collinear ................ False
+  seq_length ...................................... 32768
+  sequence_parallel ............................... False
+  sft_data_mix_strategy ........................... concat
+  sft_data_streaming .............................. False
+  sft_dataset ..................................... None
+  sft_dataset_config .............................. /jizhicfs/fenghengyi/Innovator-VL/configs/sft_dataset_config.json
+  sft_num_preprocess_workers ...................... None
+  sft_sort_batch .................................. False
+  sft_test_dataset ................................ None
+  sft_train_dataset ............................... None
+  sft_valid_dataset ............................... None
+  sgd_momentum .................................... 0.9
+  short_seq_prob .................................. 0.1
+  skip_train ...................................... False
+  skip_train_iteration_range ...................... None
+  skipped_train_samples ........................... 0
+  spec ............................................ None
+  split ........................................... 100,0,0
+  split_bw ........................................ False
+  split_special_tokens ............................ False
+  squared_relu .................................... False
+  start_weight_decay .............................. 0.0
+  stdit_bucket_config ............................. None
+  straggler_ctrlr_port ............................ 65535
+  straggler_minmax_count .......................... 1
+  streaming_buffer_size ........................... 16384
+  suggested_communication_unit_size ............... 400000000
+  swiglu .......................................... True
+  swin_backbone_type .............................. tiny
+  te_rng_tracker .................................. False
+  tensor_model_parallel_size ...................... 8
+  tensorboard_dir ................................. /jizhicfs/fenghengyi/innovator_saves/stage_2_instruct_innovator_vl_8b/tensorboard
+  tensorboard_log_interval ........................ 1
+  tensorboard_queue_size .......................... 1000
+  test_data_path .................................. None
+  test_mode ....................................... False
+  tiktoken_num_special_tokens ..................... 1000
+  tiktoken_pattern ................................ None
+  tiktoken_special_tokens ......................... None
+  timing_log_level ................................ 0
+  timing_log_option ............................... minmax
+  titles_data_path ................................ None
+  tokenizer_model ................................. None
+  tokenizer_type .................................. HFTokenizer
+  tp_comm_bootstrap_backend ....................... nccl
+  tp_comm_bulk_dgrad .............................. True
+  tp_comm_bulk_wgrad .............................. True
+  tp_comm_overlap ................................. False
+  tp_comm_overlap_ag .............................. True
+  tp_comm_overlap_cfg ............................. None
+  tp_comm_overlap_rs .............................. True
+  tp_comm_overlap_rs_dgrad ........................ False
+  tp_comm_split_ag ................................ True
+  tp_comm_split_rs ................................ True
+  train_data_path ................................. None
+  train_iters ..................................... 171875
+  train_on_prompt ................................. False
+  train_samples ................................... None
+  train_sync_interval ............................. None
+  trainable_modules ............................... ['language_model', 'adapter', 'vision_model']
+  training_phase .................................. sft
+  training_rice_vl_max_answer_length .............. 4096
+  training_rice_vl_max_image_area ................. 1806336
+  transformer_impl ................................ transformer_engine
+  transformer_pipeline_model_parallel_size ........ 1
+  untie_embeddings_and_output_weights ............. True
+  use_checkpoint_args ............................. False
+  use_checkpoint_opt_param_scheduler .............. False
+  use_cpu_initialization .......................... None
+  use_custom_fsdp ................................. False
+  use_dist_ckpt ................................... False
+  use_dist_ckpt_deprecated ........................ False
+  use_distributed_optimizer ....................... True
+  use_fast_tokenizer .............................. False
+  use_flash_attn .................................. False
+  use_legacy_models ............................... False
+  use_mp_args_from_checkpoint_args ................ False
+  use_normhead .................................... False
+  use_one_sent_docs ............................... False
+  use_persistent_ckpt_worker ...................... False
+  use_precision_aware_optimizer ................... False
+  use_pytorch_profiler ............................ False
+  use_ring_exchange_p2p ........................... False
+  use_rope_scaling ................................ False
+  use_rotary_position_embeddings .................. False
+  use_tokenizer_model_from_checkpoint_args ........ True
+  use_torch_fsdp2 ................................. False
+  use_torch_optimizer_for_cpu_offload ............. False
+  use_tp_pp_dp_mapping ............................ False
+  v_head_dim ...................................... 128
+  valid_data_path ................................. None
+  variable_seq_lengths ............................ True
+  video_max_pixels ................................ 51380224
+  virtual_pipeline_model_parallel_size ............ None
+  vision_backbone_type ............................ vit
+  vision_pretraining .............................. False
+  vision_pretraining_type ......................... classify
+  vocab_extra_ids ................................. 0
+  vocab_file ...................................... None
+  vocab_size ...................................... None
+  vocab_size_in_config_file ....................... 151936
+  vpp_scheduler ................................... None
+  wandb_exp_name .................................. 
+  wandb_project ................................... 
+  wandb_save_dir .................................. 
+  weight_decay .................................... 0.0
+  weight_decay_incr_style ......................... constant
+  wgrad_deferral_limit ............................ 0
+  world_size ...................................... 8
+  yaml_cfg ........................................ None
+-------------------- end of arguments ---------------------
+    pretrain(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/training_utils.py", line 170, in pretrain
+    _ = _build_tokenizer(args)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 58, in _build_tokenizer
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 288
+^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1197, in from_pretrained
+> AIAK building HFTokenizer tokenizer ...
+    initialize_aiak_megatron(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/initialize.py", line 107, in initialize_aiak_megatron
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 470, in cached_files
+    _GLOBAL_AIAK_TOKENIZER = build_tokenizer(args, chat_template=_GLOBAL_CHAT_TEMPLATE)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenizer.py", line 63, in build_tokenizer
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 608, in get_config_dict
+    set_aiak_extra_global_vars(args, build_tokenizer=True)
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 30, in set_aiak_extra_global_vars
+    tokenizer = AutoTokenizerFromHF(name_or_path=args.hf_tokenizer_path,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenization_hf.py", line 27, in __init__
+    hf_hub_download(
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 667, in _get_config_dict
+    _ = _build_tokenizer(args)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 58, in _build_tokenizer
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 1002, in from_pretrained
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 312, in cached_file
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1197, in from_pretrained
+    _GLOBAL_AIAK_TOKENIZER = build_tokenizer(args, chat_template=_GLOBAL_CHAT_TEMPLATE)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenizer.py", line 63, in build_tokenizer
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    tokenizer = AutoTokenizerFromHF(name_or_path=args.hf_tokenizer_path,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenization_hf.py", line 27, in __init__
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 608, in get_config_dict
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 1002, in from_pretrained
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1653, in _raise_on_head_call_error
+    raise OSError(
+OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 667, in _get_config_dict
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1197, in from_pretrained
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 21, in <module>
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 312, in cached_file
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 608, in get_config_dict
+    main()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 17, in main
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 667, in _get_config_dict
+    trainer.train()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/megatron_trainer.py", line 48, in train
+    raise OSError(
+OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 312, in cached_file
+    pretrain(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/training_utils.py", line 170, in pretrain
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    initialize_aiak_megatron(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/initialize.py", line 107, in initialize_aiak_megatron
+    raise OSError(
+OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+    set_aiak_extra_global_vars(args, build_tokenizer=True)
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 30, in set_aiak_extra_global_vars
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 470, in cached_files
+    _ = _build_tokenizer(args)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 58, in _build_tokenizer
+    hf_hub_download(
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    _GLOBAL_AIAK_TOKENIZER = build_tokenizer(args, chat_template=_GLOBAL_CHAT_TEMPLATE)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenizer.py", line 63, in build_tokenizer
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    tokenizer = AutoTokenizerFromHF(name_or_path=args.hf_tokenizer_path,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenization_hf.py", line 27, in __init__
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 1002, in from_pretrained
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1653, in _raise_on_head_call_error
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1197, in from_pretrained
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 21, in <module>
+    main()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py", line 17, in main
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 608, in get_config_dict
+    trainer.train()
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/megatron_trainer.py", line 48, in train
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 667, in _get_config_dict
+    pretrain(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train/training_utils.py", line 170, in pretrain
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 312, in cached_file
+    initialize_aiak_megatron(
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/initialize.py", line 107, in initialize_aiak_megatron
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    set_aiak_extra_global_vars(args, build_tokenizer=True)
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 30, in set_aiak_extra_global_vars
+    raise OSError(
+OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+    _ = _build_tokenizer(args)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/utils/global_vars.py", line 58, in _build_tokenizer
+    _GLOBAL_AIAK_TOKENIZER = build_tokenizer(args, chat_template=_GLOBAL_CHAT_TEMPLATE)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenizer.py", line 63, in build_tokenizer
+    tokenizer = AutoTokenizerFromHF(name_or_path=args.hf_tokenizer_path,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/tokenizer/tokenization_hf.py", line 27, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 1002, in from_pretrained
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1197, in from_pretrained
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 608, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/configuration_utils.py", line 667, in _get_config_dict
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 312, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    raise OSError(
+OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+W0423 15:06:59.947000 3231472 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3231610 closing signal SIGTERM
+W0423 15:06:59.949000 3231472 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3231611 closing signal SIGTERM
+W0423 15:06:59.949000 3231472 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3231612 closing signal SIGTERM
+W0423 15:06:59.951000 3231472 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3231613 closing signal SIGTERM
+W0423 15:06:59.953000 3231472 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3231614 closing signal SIGTERM
+W0423 15:06:59.968000 3231472 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3231615 closing signal SIGTERM
+W0423 15:06:59.971000 3231472 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3231616 closing signal SIGTERM
+E0423 15:07:00.352000 3231472 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 7 (pid: 3231617) of binary: /jizhicfs/fenghengyi/miniconda3/envs/innov/bin/python3.12
+Traceback (most recent call last):
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/jizhicfs/fenghengyi/miniconda3/envs/innov/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/jizhicfs/fenghengyi/Innovator-VL/aiak_training_llm/train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-23_15:06:59
+  host      : TENCENT64.site
+  rank      : 7 (local_rank: 7)
+  exitcode  : 1 (pid: 3231617)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
